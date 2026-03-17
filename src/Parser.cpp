@@ -29,14 +29,20 @@ Parser::Parser(const std::string& filePath) {
             lines.push_back(line);
         }
     }
+
+    if (lines.empty()) {
+        std::cerr << "Assembly file provided contains no instructions. Please provide a valid file." << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
-bool Parser::hasMoreCommands() {
-    throw std::runtime_error("Not implemented");
+bool Parser::hasMoreCommands() const {
+    return currentCommandNumber > lines.size() - 1;
 }
 
 void Parser::advance() {
-    throw std::runtime_error("Not implemented");
+    currentCommand = lines[currentCommandNumber];
+    currentCommandNumber++; // Starts @ 0 but first command/line in file should be 1
 }
 
 CommandType Parser::commandType() {

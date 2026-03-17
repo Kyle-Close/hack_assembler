@@ -16,8 +16,11 @@ enum CommandType {
 class Parser {
 public:
     std::vector<std::string> lines;
+    std::string currentCommand;
+    unsigned int currentCommandNumber = 0;
+
     explicit Parser(const std::string& filePath);
-    bool hasMoreCommands();
+    bool hasMoreCommands() const;
     void advance();
     CommandType commandType();
     std::string symbol();
