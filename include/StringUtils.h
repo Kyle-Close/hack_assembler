@@ -11,5 +11,6 @@ void TrimEnd(std::string& str);
 void Trim(std::string& str);
 
 bool StartsWith(const std::string& str, char target);
+bool Contains(const std::string& str, char target);
 
 #endif //STRINGUTILS_H

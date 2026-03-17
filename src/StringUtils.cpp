@@ -61,3 +61,10 @@ bool StartsWith(const std::string& str, const char target) {
     }
     return false;
 }
+
+bool Contains(const std::string& str, const char target) {
+    if (str.find(target) != -1) {
+        return true;
+    }
+    return false;
+}

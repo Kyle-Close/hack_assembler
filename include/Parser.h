@@ -20,13 +20,13 @@ public:
     unsigned int currentCommandNumber = 0;
 
     explicit Parser(const std::string& filePath);
-    bool hasMoreCommands() const;
+    [[nodiscard]] bool hasMoreCommands() const;
     void advance();
-    CommandType commandType();
-    std::string symbol();
-    std::string dest();
-    std::string comp();
-    std::string jump();
+    [[nodiscard]] CommandType commandType() const;
+    [[nodiscard]] std::string symbol() const;
+    [[nodiscard]] std::string dest() const;
+    [[nodiscard]] std::string comp() const;
+    [[nodiscard]] std::string jump() const;
 };
 
 #endif //PARSER_H
