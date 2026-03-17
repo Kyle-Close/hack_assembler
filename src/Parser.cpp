@@ -93,17 +93,16 @@ std::string Parser::comp() const{
     const bool containsDest = Contains(currentCommand, '=');
     const bool containsJump = Contains(currentCommand, ';');
 
-    size_t startIndex = 0;
-    size_t endIndex = currentCommand.length() - 1;
+    std::string result;
 
     if (containsDest) {
-        startIndex = currentCommand.find('=');
+        result = currentCommand.substr(currentCommand.find('=') + 1);
     }
     if (containsJump) {
-        endIndex = currentCommand.find(';') - 1;
+        result = currentCommand.substr(0, currentCommand.find(';'));
     }
 
-    return currentCommand.substr(startIndex + 1, endIndex - startIndex);
+    return result;
 }
 
 std::string Parser::jump() const{
