@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Assembler
         src/main.cpp
         src/Parser.cpp
-        src/StringUtils.cpp)
+        src/StringUtils.cpp
+        src/Code.cpp
+        include/Code.h)
