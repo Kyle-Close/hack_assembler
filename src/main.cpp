@@ -2,8 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Parser.h"
-#include "StringUtils.h"
+#include "../include/Parser.h"
 
 int main(const int argc, char *argv[]) {
     if (argc != 2) {

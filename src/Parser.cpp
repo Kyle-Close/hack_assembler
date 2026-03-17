@@ -2,12 +2,12 @@
 // Created by kyle on 2026-03-16.
 //
 
-#include "Parser.h"
+#include "../include/Parser.h"
 
 #include <iostream>
 #include <fstream>
 
-#include "StringUtils.h"
+#include "../include/StringUtils.h"
 
 Parser::Parser(const std::string& filePath) {
     // Open assembly program
