@@ -8,7 +8,7 @@
 #include <string>
 
 std::string Code::dest(const std::string& mnemonic) {
-    if (mnemonic == "null") {
+    if (mnemonic == "null" || mnemonic.empty()) {
         return "000";
     } else if (mnemonic == "M") {
         return "001";
@@ -53,10 +53,10 @@ std::string Code::comp(const std::string& mnemonic) {
         return "011111";
     } else if (mnemonic == "A+1") {
         return "0110111";
-    }else if (mnemonic == "D+1") {
+    }else if (mnemonic == "M+1") {
         return "1110111";
     } else if (mnemonic == "D-1") {
-        return "001110";
+        return "0001110";
     } else if (mnemonic == "A-1") {
         return "0110010";
     }else if (mnemonic == "M-1") {
@@ -88,7 +88,7 @@ std::string Code::comp(const std::string& mnemonic) {
 }
 
 std::string Code::jump(const std::string& mnemonic) {
-    if (mnemonic == "null") {
+    if (mnemonic == "null" || mnemonic.empty()) {
         return "000";
     } else if (mnemonic == "JGT") {
         return "001";
@@ -103,6 +103,8 @@ std::string Code::jump(const std::string& mnemonic) {
     } else if (mnemonic == "JLE") {
         return "110";
     } else if (mnemonic == "JMP") {
+        return "111";
+    }else if (mnemonic == "JMP") {
         return "111";
     } else {
         std::cerr << "Invalid jump mnemonic." << std::endl;

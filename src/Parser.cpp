@@ -37,7 +37,7 @@ Parser::Parser(const std::string& filePath) {
 }
 
 bool Parser::hasMoreCommands() const {
-    return currentCommandNumber > lines.size() - 1;
+    return currentCommandNumber < lines.size();
 }
 
 void Parser::advance() {
@@ -81,7 +81,7 @@ std::string Parser::dest() const{
         return "";
     }
 
-    return currentCommand.substr(0, index - 1);
+    return currentCommand.substr(0, index);
 }
 
 std::string Parser::comp() const{
@@ -103,7 +103,7 @@ std::string Parser::comp() const{
         endIndex = currentCommand.find(';') - 1;
     }
 
-    return currentCommand.substr(startIndex, endIndex - startIndex);
+    return currentCommand.substr(startIndex + 1, endIndex - startIndex);
 }
 
 std::string Parser::jump() const{
@@ -117,5 +117,5 @@ std::string Parser::jump() const{
         return "";
     }
 
-    return currentCommand.substr(index, currentCommand.length() - 1);
+    return currentCommand.substr(index + 1, currentCommand.length() - 1);
 }
