@@ -45,3 +45,19 @@ void Trim(std::string& str) {
     TrimStart(str);
     TrimEnd(str);
 }
+
+bool StartsWith(const std::string& str, const char target) {
+    if (str.empty()) {
+        return false;
+    }
+
+    for (int i = 0; i <= str.length() - 1; i++) {
+        if (!std::isblank(str[i])) {
+            if (str[i] == target) {
+                return true;
+            }
+            return false;
+        }
+    }
+    return false;
+}

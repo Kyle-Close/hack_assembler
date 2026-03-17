@@ -22,7 +22,10 @@ Parser::Parser(const std::string& filePath) {
     while (std::getline(file, line)) {
         Trim(line);
 
-        if (line.find("//") == -1 && !line.empty()) {
+        if (!StartsWith(line, '/') && !line.empty()) {
+            if (const size_t pos = line.find('/'); pos != -1) {
+                line.erase(pos, line.length() - 1);
+            }
             lines.push_back(line);
         }
     }
